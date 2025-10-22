@@ -220,20 +220,18 @@
             <p class="subtitle">Исследование современных возможностей HTML5 и CSS3 для создания адаптивных веб-интерфейсов</p>
         </div>
         
-    
+        <div class="links-container">
+            <a href="https://github.com/valera-kbak/diplom/blob/main/index.html" class="link" target="_blank">
+                <i class="fab fa-github"></i>
+                Исходный код на GitHub
             </a>
-            <a href="#" class="link">
-                <i class="https://vaiera-kbak.github.io/htim1">  /</i>
-          моя основная работа
-            
+            <a href="https://vaiera-kbak.github.io/htim1/" class="link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                Демо-версия проекта
             </a>
-            <a href="#" class="link">
-                <i class="https://github.com/valera-kbak/diplom/edit/main/index.html">  </i>
-                код
-             </a>
-             <a href="#" class="link">
-                <i class="https://www.figma.com/board/adw8Kuhn2FlfkqwqCBz9H5/Welcome-to-FigJam?node-id=0-1&p=f&t=Fizmzn5wa0hWt7Cx-0"></i>
-                 Figma
+            <a href="https://www.figma.com/board/adw8Kuhn2FlfkqwqCBz9H5/Welcome-to-FigJam?node-id=0-1&p=f&t=Fizmzn5wa0hWt7Cx-0" class="link" target="_blank">
+                <i class="fab fa-figma"></i>
+                Макет в Figma
             </a>
         </div>
 
@@ -261,10 +259,9 @@
                 document.body.className = savedBackground;
                 updateActiveBackground(savedBackground);
             }
-
-            // Обработчики для выбора фона
+// Обработчики для выбора фона
             document.querySelectorAll('.bg-option').forEach(option => {
-option.addEventListener('click', function() {
+                option.addEventListener('click', function() {
                     const bgClass = this.getAttribute('data-bg');
                     document.body.className = bgClass;
                     localStorage.setItem('diplomaBackground', bgClass);
