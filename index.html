@@ -1,152 +1,132 @@
-<html>
-<head>
-<link rel="stylesheet" href="my.css">
-</head>
-
-	
-<body>
-
-	<h4>диплом</h4>
-<div class="wrapper">
-	<svg>
-		<text x="50%" y="50%" dy=".35em" text-anchor="middle">
-			погода усть-илимск
-		</text>
-	</svg>
-</div>
-
-<a class="nuipogoda-iframe-informer" data-nuipogoda="informer1" href="https://nuipogoda.ru" style="width:284px;height:192px;display:block;box-shadow: 0 0 5px #999;">НУ И ПОГОДА</a><script>(function(a,f,g){var e=a.createElement(f);e.async=1;e.src=g; a=a.getElementsByTagName(f)[0];a.parentNode.insertBefore(e,a)})(document,'script','//nuipogoda.ru/informer/nuipogoda.js');</script>
-
-	
-<li>привет дрг</li>
-<li>это твой диплом</li>
-
-<a href="https://www.figma.com/board/adw8Kuhn2FlfkqwqCBz9H5/Welcome-to-FigJam?node-id=1-60&t=J9hNo51S9szWKo6h-1">фигма</a>
-<li>паздровляю</li>
-<li><font color=’FF0000’>ниже будет сылка на гитхаб</font></li>
-<li>https://github.com/valera-kbak/2/settings</li>
-  <a href="https://vaiera-kbak.github.io/htim1/">фигма</a>
-<prent></prent>
-<prent></prent>
-<prent></prent>
-<prent></prent>
-<pre>
-<Form name=’text’>
-html-learning-project/
-├── index.html          # Главная страница проекта
-├── README.md           # Описание проекта
-├── LICENSE             # Лицензия MIT
-├── examples/           # Папка с примерами
-│   ├── basic-html/     # Базовые теги
-│   ├── forms/          # HTML-формы
-│   └── tables/         # HTML-таблицы
-└── exercises/          # Практические задания
-# Учебный проект по HTML
-
-**Автор:** Вельш Артём Николаевич  
-**Дата создания:** 2023-11-15  
-**Цель проекта:** Обучить основам HTML через практические примеры.
-
-## 🛠️ Реализованные возможности:
-
-1. **Базовые HTML-теги**:
-   - Создана структура HTML-документа
-   - Добавлены заголовки, параграфы, списки
-   - Реализованы ссылки и изображения
-
-2. **HTML-формы**:
-   - Создана форма регистрации
-   - Добавлены различные типы полей ввода
-   - Реализована валидация форм
-
-3. **Таблицы**:
-   - Создана таблица с расписанием занятий
-   - Добавлены объединенные ячейки
-   - Стилизация таблицы через CSS
-
-## 🚀 Как использовать проект:
-
-1. Клонировать репозиторий:
-```bash
-git clone https://github.com/ваш-логин/html-learning-project.git
-  <!DOCTYPE html>
-<html>
-<head>
-    <title>Моя первая страница</title>
-</head>
-<body>
-    <h1>Привет, мир!</h1>
-    <p>Это мой первый HTML-документ</p>
-    <ul>
-        <li>Пункт 1</li>
-        <li>Пункт 2</li>
-    </ul>
-</body>
-</html>
-
-### 4. Пример index.html:
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Учебный проект по HTML</title>
+    <title>Дипломная работа</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
         }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
         h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5em;
         }
-        .example {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
         }
+
+        .link {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .link:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .background-selector {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .bg-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .bg-option:hover {
+            transform: scale(1.1);
+        }
+
+        /* Цвета фонов */
+        .bg1 { background: linear-gradient(45deg, #667eea, #764ba2); }
+        .bg2 { background: linear-gradient(45deg, #f093fb, #f5576c); }
+        .bg3 { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+        .bg4 { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+        .bg5 { background: linear-gradient(45deg, #fa709a, #fee140); }
+        .bg6 { background: linear-gradient(45deg, #30cfd0, #330867); }
     </style>
 </head>
-<body>
-    <h1>Добро пожаловать в учебный проект по HTML!</h1>
-    <p>Этот проект создан для изучения основ HTML через практические примеры.</p>
-    
-    <div class="example">
-        <h2>Что вы найдете в этом проекте:</h2>
-        <ul>
-            <li>Примеры базовых HTML-тегов</li>
-            <li>Рабочие формы</li>
-            <li>HTML-таблицы</li>
-            <li>Практические задания</li>
-        </ul>
+<body class="bg1">
+    <div class="container">
+        <h1>Дипломная работа</h1>
+        
+        <div class="links-container">
+            <a href="#" class="link">Ссылка на документы</a>
+            <a href="#" class="link">Ссылка на презентацию</a>
+            <a href="#" class="link">Ссылка на исходный код</a>
+        </div>
+
+        <div class="background-selector">
+            <div class="bg-option bg1" onclick="changeBackground('bg1')"></div>
+            <div class="bg-option bg2" onclick="changeBackground('bg2')"></div>
+            <div class="bg-option bg3" onclick="changeBackground('bg3')"></div>
+            <div class="bg-option bg4" onclick="changeBackground('bg4')"></div>
+            <div class="bg-option bg5" onclick="changeBackground('bg5')"></div>
+            <div class="bg-option bg6" onclick="changeBackground('bg6')"></div>
+        </div>
     </div>
-    
-    <p>Для начала работы откройте нужный пример в папке <code>examples/</code>.</p>
+
+    <script>
+        function changeBackground(className) {
+            document.body.className = className;
+        }
+
+        // Сохранение выбора фона в localStorage
+        const savedBackground = localStorage.getItem('selectedBackground');
+        if (savedBackground) {
+            document.body.className = savedBackground;
+        }
+document.querySelectorAll('.bg-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const className = e.target.classList[1];
+                localStorage.setItem('selectedBackground', className);
+            });
+        });
+    </script>
 </body>
 </html>
-git add .
-git commit -m "Initial commit with HTML learning project"
-git push origin main
-
-
-   <h3>это пример работы с Flex</h3>
-         <h3></h3>
-                    <p></p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>afd3wasdf</h3>
-                    <p>adasfa</p>
-                </div>
-            </div>
-
-                    <h3>adawda</h3>
-                    <p>awdasdwa</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-dragon"></i>
