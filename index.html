@@ -3,129 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дипломная работа</title>
+    <title>Дипломная работа по HTML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             min-height: 100vh;
-            transition: background 0.5s ease;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             padding: 20px;
+            transition: background 0.8s ease;
+            overflow-x: hidden;
         }
 
+        /* Фоновые градиенты */
+        .bg-default { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .bg-ocean { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .bg-sunset { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .bg-night { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .bg-forest { background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%); }
+        .bg-royal { background: linear-gradient(135deg, #8A2BE2 0%, #FF69B4 100%); }
+
         .container {
-            max-width: 800px;
             width: 100%;
+            max-width: 900px;
             text-align: center;
+            position: relative;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            color: #fff;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-size: 2.5em;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
         .link {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 25px 30px;
+            border-radius: 18px;
             text-decoration: none;
             color: white;
-            font-size: 1.2em;
-            transition: transform 0.3s ease, background 0.3s ease;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
         }
 
         .link:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .link:hover::before {
+            left: 100%;
+        }
+
+        .link i {
+            font-size: 1.5rem;
         }
 
         .background-selector {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .bg-option {
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             cursor: pointer;
             border: 3px solid white;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
         }
 
         .bg-option:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+.bg-option.active {
+            transform: scale(1.2);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
         }
 
-        /* Цвета фонов */
-        .bg1 { background: linear-gradient(45deg, #667eea, #764ba2); }
-        .bg2 { background: linear-gradient(45deg, #f093fb, #f5576c); }
-        .bg3 { background: linear-gradient(45deg, #4facfe, #00f2fe); }
-        .bg4 { background: linear-gradient(45deg, #43e97b, #38f9d7); }
-        .bg5 { background: linear-gradient(45deg, #fa709a, #fee140); }
-        .bg6 { background: linear-gradient(45deg, #30cfd0, #330867); }
+        .footer {
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Анимация появления элементов */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header, .links-container, .background-selector {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .links-container {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .background-selector {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .link {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            
+            .bg-option {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .link {
+                padding: 18px;
+                font-size: 1rem;
+            }
+            
+            .bg-option {
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
-<body class="bg1">
+<body class="bg-default">
     <div class="container">
-        <h1>Дипломная работа</h1>
+        <div class="header">
+            <h1>Дипломная работа по HTML</h1>
+            <p class="subtitle">Исследование современных возможностей HTML5 и CSS3 для создания адаптивных веб-интерфейсов</p>
+        </div>
         
         <div class="links-container">
-            <a href="#" class="link">Ссылка на документы</a>
-            <a href="#" class="link">Ссылка на презентацию</a>
-            <a href="#" class="link">Ссылка на исходный код</a>
+            <a href="#" class="link">
+                <i class="fas fa-file-pdf"></i>
+                Полный текст дипломной работы
+            </a>
+            <a href="#" class="link">
+                <i class="fas fa-chart-bar"></i>
+                Презентация и материалы
+            </a>
+            <a href="#" class="link">
+                <i class="fas fa-code"></i>
+                Исходный код проекта
+            </a>
         </div>
 
         <div class="background-selector">
-            <div class="bg-option bg1" onclick="changeBackground('bg1')"></div>
-            <div class="bg-option bg2" onclick="changeBackground('bg2')"></div>
-            <div class="bg-option bg3" onclick="changeBackground('bg3')"></div>
-            <div class="bg-option bg4" onclick="changeBackground('bg4')"></div>
-            <div class="bg-option bg5" onclick="changeBackground('bg5')"></div>
-            <div class="bg-option bg6" onclick="changeBackground('bg6')"></div>
+            <div class="bg-option bg-default active" data-bg="bg-default" title="Фиолетовый градиент">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="bg-option bg-ocean" data-bg="bg-ocean" title="Океанский градиент"></div>
+            <div class="bg-option bg-sunset" data-bg="bg-sunset" title="Закатный градиент"></div>
+            <div class="bg-option bg-night" data-bg="bg-night" title="Ночной градиент"></div>
+            <div class="bg-option bg-forest" data-bg="bg-forest" title="Лесной градиент"></div>
+            <div class="bg-option bg-royal" data-bg="bg-royal" title="Королевский градиент"></div>
+        </div>
+
+        <div class="footer">
+            <p>© 2023 Дипломная работа по HTML | Студент: Иванов А.С.</p>
         </div>
     </div>
 
     <script>
-        function changeBackground(className) {
-            document.body.className = className;
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Восстановление сохраненного фона
+            const savedBackground = localStorage.getItem('diplomaBackground');
+            if (savedBackground) {
+                document.body.className = savedBackground;
+                updateActiveBackground(savedBackground);
+            }
 
-        // Сохранение выбора фона в localStorage
-        const savedBackground = localStorage.getItem('selectedBackground');
-        if (savedBackground) {
-            document.body.className = savedBackground;
-        }
-document.querySelectorAll('.bg-option').forEach(option => {
-            option.addEventListener('click', (e) => {
-                const className = e.target.classList[1];
-                localStorage.setItem('selectedBackground', className);
+            // Обработчики для выбора фона
+            document.querySelectorAll('.bg-option').forEach(option => {
+option.addEventListener('click', function() {
+                    const bgClass = this.getAttribute('data-bg');
+                    document.body.className = bgClass;
+                    localStorage.setItem('diplomaBackground', bgClass);
+                    updateActiveBackground(bgClass);
+                });
             });
+
+            // Функция обновления активного фона
+            function updateActiveBackground(bgClass) {
+                document.querySelectorAll('.bg-option').forEach(option => {
+                    option.classList.remove('active');
+                    option.innerHTML = '';
+                });
+                
+                const activeOption = document.querySelector(.bg-option[data-bg="${bgClass}"]);
+                activeOption.classList.add('active');
+                activeOption.innerHTML = '<i class="fas fa-check"></i>';
+            }
         });
     </script>
 </body>
