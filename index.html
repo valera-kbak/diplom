@@ -1,353 +1,409 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Academy - Стань веб-разработчиком</title>
-    <style>
-        /* Базовые стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+nav ul li a:hover::after {
+            width: 100%;
         }
-        
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Шапка */
-        header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
-            color: #e74c3c;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #e74c3c;
-        }
-        
+
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         /* Герой-секция */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 5rem 0;
+            padding: 10rem 0 5rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
         }
-        
+
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
         }
-        
-        .btn {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
+
+        .hero .btn {
+            animation: fadeInUp 1s ease 0.4s both;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
         }
-        
-        .btn:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        /* Секции */
-        section {
-            padding: 4rem 0;
-        }
-        
-        h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            color: #2c3e50;
-        }
-        
+
         /* Преимущества */
         .features {
             background-color: white;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
-        
+
         .feature-card {
             background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
-        
+.feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
-.feature-icon {
-            font-size: 3rem;
-            color: #3498db;
-            margin-bottom: 1rem;
+
+        .feature-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
         }
-        
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
         .feature-card h3 {
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: var(--dark);
         }
-        
+
         /* Курсы */
+        .courses {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
         .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
-        
+
         .course-card {
             background: white;
-            border-radius: 8px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
-        
+
         .course-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
-        
+
         .course-img {
             height: 200px;
-            background-color: #3498db;
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .course-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+        }
+
         .course-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
-        
+
         .course-content h3 {
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
         }
-        
+
         .course-content p {
-            margin-bottom: 1rem;
-            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
         }
-        
+
         .price {
             font-weight: bold;
-            color: #e74c3c;
-            font-size: 1.2rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
-        
+
         /* Отзывы */
         .testimonials {
-            background-color: #f5f7fa;
+            background-color: var(--dark);
+            color: white;
         }
-        
+
+        .testimonials .section-title {
+            color: white;
+        }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
-        
+
         .testimonial-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
         }
-        
-        .testimonial-card::before {
-            content: """;
-            font-size: 5rem;
-            color: #3498db;
-            opacity: 0.2;
-            position: absolute;
-            top: -10px;
-            left: 10px;
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
         }
-        
+
         .testimonial-text {
             margin-bottom: 1.5rem;
             font-style: italic;
+            position: relative;
+            padding-left: 1.5rem;
         }
-        
+
+        .testimonial-text::before {
+            content: """;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+        }
+
         .testimonial-author {
             display: flex;
             align-items: center;
         }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+.author-avatar {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background-color: #3498db;
-            margin-right: 1rem;
+            background: var(--gradient);
+            margin-right: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
+            font-size: 1.5rem;
         }
-        
+
         /* Призыв к действию */
         .cta {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: var(--gradient);
             color: white;
             text-align: center;
-            padding: 4rem 0;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 30s infinite linear;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
         .cta h2 {
             color: white;
             margin-bottom: 1rem;
         }
-        
+
         .cta p {
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
         }
-        
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+        }
+
+        .cta .btn:hover {
+            background: var(--dark);
+            color: white;
+        }
+
         /* Футер */
         footer {
-            background: #2c3e50;
+            background: var(--dark);
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 1.5rem;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
-        
+
         .footer-column h3 {
             margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
-        
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
         .footer-column ul {
             list-style: none;
         }
-        
+
         .footer-column ul li {
             margin-bottom: 0.8rem;
         }
-.footer-column ul li a {
+
+        .footer-column ul li a {
             color: #bdc3c7;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
-        
+
         .footer-column ul li a:hover {
             color: white;
+            padding-left: 5px;
         }
-        
+
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
-        
+
         .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #34495e;
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: var(--transition);
         }
-        
+
         .social-links a:hover {
-            background: #3498db;
+            background: var(--primary);
+            transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #34495e;
+            border-top: 1px solid rgba(255,255,255,0.1);
             color: #bdc3c7;
             font-size: 0.9rem;
         }
-        
+
+        /* Анимации появления при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+.fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .mobile-menu {
@@ -358,12 +414,12 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background: #2c3e50;
+                background: var(--dark);
                 padding: 1rem;
-                z-index: 100;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
             nav ul.show {
@@ -375,22 +431,45 @@
             }
             
             .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
                 font-size: 2rem;
             }
             
             .hero p {
                 font-size: 1rem;
             }
+            
+            .features-grid, .courses-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Шапка -->
-    <header>
+    <header id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">HTML<span>Academy</span></div>
-                <div class="mobile-menu">☰</div>
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    HTML<span>Academy</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <nav>
                     <ul>
                         <li><a href="#features">Преимущества</a></li>
@@ -406,31 +485,39 @@
     <!-- Герой-секция -->
     <section class="hero">
         <div class="container">
-            <h1>Стань веб-разработчиком с нуля</h1>
-            <p>Практические курсы по HTML, CSS, JavaScript и другим современным технологиям. Научим создавать сайты и веб-приложения с реальными проектами в портфолио.</p>
-            <a href="#cta" class="btn">Начать бесплатно</a>
+            <div class="hero-content">
+                <h1>Стань веб-разработчиком с нуля</h1>
+                <p>Практические курсы по HTML, CSS, JavaScript и другим современным технологиям. Научим создавать сайты и веб-приложения с реальными проектами в портфолио.</p>
+                <a href="#cta" class="btn">Начать бесплатно</a>
+            </div>
         </div>
     </section>
 
     <!-- Преимущества -->
     <section class="features" id="features">
         <div class="container">
-            <h2>Почему выбирают HTML Academy</h2>
+            <h2 class="section-title">Почему выбирают HTML Academy</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💻</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
                     <h3>Практика с первого дня</h3>
-                    <p>Теория закрепляется практическими заданиями и реальными проектами.</p>
+                    <p>Теория закрепляется практическими заданиями и реальными проектами. Сразу применяйте знания на практике.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🏫</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
                     <h3>Опытные наставники</h3>
-                    <p>Преподаватели с опытом работы в ведущих IT-компаниях.</p>
+                    <p>Преподаватели с опытом работы в ведущих IT-компаниях. Получайте обратную связь и поддержку.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
                     <h3>Актуальные материалы</h3>
-                    <p>Программы постоянно обновляются в соответствии с трендами веб-разработки.</p>
+                    <p>Программы постоянно обновляются в соответствии с трендами веб-разработки. Изучайте только нужное.</p>
                 </div>
             </div>
         </div>
@@ -438,33 +525,39 @@
 <!-- Курсы -->
     <section class="courses" id="courses">
         <div class="container">
-            <h2>Популярные курсы</h2>
+            <h2 class="section-title">Популярные курсы</h2>
             <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-img" style="background-color: #3498db;">HTML & CSS</div>
+                <div class="course-card fade-in">
+                    <div class="course-img">
+                        <i class="fab fa-html5"></i>
+                    </div>
                     <div class="course-content">
                         <h3>Основы вёрстки</h3>
-                        <p>Научитесь создавать современные адаптивные сайты с чистым кодом.</p>
+                        <p>Научитесь создавать современные адаптивные сайты с чистым кодом. Освойте HTML5 и CSS3.</p>
                         <div class="price">Бесплатно</div>
-                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
+                        <a href="#" class="btn">Подробнее</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-img" style="background-color: #e74c3c;">JavaScript</div>
+                <div class="course-card fade-in">
+                    <div class="course-img">
+                        <i class="fab fa-js"></i>
+                    </div>
                     <div class="course-content">
                         <h3>JavaScript для начинающих</h3>
-                        <p>Освойте основы программирования и создайте интерактивные веб-приложения.</p>
+                        <p>Освойте основы программирования и создайте интерактивные веб-приложения. От переменных до асинхронности.</p>
                         <div class="price">15 000 ₽</div>
-                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
+                        <a href="#" class="btn">Подробнее</a>
                     </div>
                 </div>
-                <div class="course-card">
-                    <div class="course-img" style="background-color: #2ecc71;">React</div>
+                <div class="course-card fade-in">
+                    <div class="course-img">
+                        <i class="fab fa-react"></i>
+                    </div>
                     <div class="course-content">
                         <h3>React.js разработка</h3>
-                        <p>Создавайте современные веб-приложения с помощью популярного фреймворка.</p>
+                        <p>Создавайте современные веб-приложения с помощью популярного фреймворка. Компонентный подход и хуки.</p>
                         <div class="price">25 000 ₽</div>
-                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
+                        <a href="#" class="btn">Подробнее</a>
                     </div>
                 </div>
             </div>
@@ -474,11 +567,11 @@
     <!-- Отзывы -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2>Отзывы выпускников</h2>
+            <h2 class="section-title">Отзывы выпускников</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card fade-in">
                     <div class="testimonial-text">
-                        "Прошел курс по JavaScript, получил оффер в IT-компанию через 2 месяца после окончания. Преподаватели объясняют сложные темы простым языком."
+                        Прошел курс по JavaScript, получил оффер в IT-компанию через 2 месяца после окончания. Преподаватели объясняют сложные темы простым языком.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">АС</div>
@@ -488,9 +581,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card fade-in">
                     <div class="testimonial-text">
-                        "Начала с нуля, сейчас работаю в веб-студии. Особенно ценю практический подход - все знания сразу применяла в реальных проектах."
+                        Начала с нуля, сейчас работаю в веб-студии. Особенно ценю практический подход - все знания сразу применяла в реальных проектах.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">МК</div>
@@ -500,9 +593,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card fade-in">
                     <div class="testimonial-text">
-                        "Отличная платформа для старта в IT. После курса по React смог устроиться джуниор-разработчиком с достойной зарплатой."
+                        Отличная платформа для старта в IT. После курса по React смог устроиться джуниор-разработчиком с достойной зарплатой.
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">ДИ</div>
@@ -518,9 +611,11 @@
 <!-- Призыв к действию -->
     <section class="cta" id="cta">
         <div class="container">
-            <h2>Начни карьеру в IT сегодня</h2>
-            <p>Присоединяйся к тысячам студентов, которые уже начали свой путь в веб-разработке с HTML Academy.</p>
-            <a href="#" class="btn">Записаться на курс</a>
+            <div class="cta-content">
+                <h2>Начни карьеру в IT сегодня</h2>
+                <p>Присоединяйся к тысячам студентов, которые уже начали свой путь в веб-разработке с HTML Academy.</p>
+                <a href="#" class="btn">Записаться на курс</a>
+            </div>
         </div>
     </section>
 
@@ -530,11 +625,12 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>HTML Academy</h3>
-                    <p>Онлайн-платформа для обучения веб-разработке с 2013 года.</p>
+                    <p>Онлайн-платформа для обучения веб-разработке с 2013 года. Более 50 000 выпускников.</p>
                     <div class="social-links">
-                        <a href="#">VK</a>
-                        <a href="#">TG</a>
-                        <a href="#">YT</a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -580,7 +676,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 70,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                     
@@ -589,6 +685,33 @@
                 }
             });
         });
+        
+        // Эффект при скролле для шапки
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Анимация появления элементов при скролле
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Запускаем при загрузке страницы для элементов, которые уже видны
+        fadeInOnScroll();
     </script>
 </body>
 </html>
