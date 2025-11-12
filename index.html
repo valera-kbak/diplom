@@ -1,717 +1,174 @@
-nav ul li a:hover::after {
-            width: 100%;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дипломная работа</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        body {
+            min-height: 100vh;
+            transition: background 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        /* Герой-секция */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), 
-                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 10rem 0 5rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e74c3c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-50px, -50px) rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .container {
             max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero .btn {
-            animation: fadeInUp 1s ease 0.4s both;
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Преимущества */
-        .features {
-            background-color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-.feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .feature-card:hover::before {
             width: 100%;
-            opacity: 0.1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        /* Курсы */
-        .courses {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .course-img {
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
             font-size: 2.5rem;
-            position: relative;
-            overflow: hidden;
         }
 
-        .course-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.1);
-        }
-
-        .course-content {
-            padding: 2rem;
-        }
-
-        .course-content h3 {
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-        }
-
-        .course-content p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-
-        .price {
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Отзывы */
-        .testimonials {
-            background-color: var(--dark);
-            color: white;
-        }
-
-        .testimonials .section-title {
-            color: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: var(--transition);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .testimonial-text {
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .testimonial-text::before {
-            content: """;
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.3;
-            position: absolute;
-            top: -1rem;
-            left: -0.5rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-.author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient);
-            margin-right: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        /* Призыв к действию */
-        .cta {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: float 30s infinite linear;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
             font-size: 1.2rem;
         }
 
-        .cta .btn {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+        .links-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(240, 240, 240, 0.7);
+            border-radius: 10px;
         }
 
-        .cta .btn:hover {
-            background: var(--dark);
-            color: white;
+        h2 {
+            color: #444;
+            margin-bottom: 20px;
         }
 
-        /* Футер */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .social-links {
+        .github-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
+        .github-link {
+            display: block;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
             text-decoration: none;
-            transition: var(--transition);
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .social-links a:hover {
-            background: var(--primary);
+        .github-link:hover {
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: #f8f8f8;
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bdc3c7;
-            font-size: 0.9rem;
+        .background-controls {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        /* Анимации появления при скролле */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        .bg-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
-.fade-in.visible {
-            opacity: 1;
+
+        .bg-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .bg-btn:active {
             transform: translateY(0);
         }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            section {
-                padding: 3rem 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .features-grid, .courses-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Шапка -->
-    <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-code"></i>
-                    HTML<span>Academy</span>
-                </div>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#features">Преимущества</a></li>
-                        <li><a href="#courses">Курсы</a></li>
-                        <li><a href="#testimonials">Отзывы</a></li>
-                        <li><a href="#cta" class="btn">Начать обучение</a></li>
-                    </ul>
-                </nav>
+    <div class="container">
+        <h1>Дипломная работа</h1>
+        <p class="subtitle">Тема: Разработка веб-приложения с изменяющимся фоном</p>
+        
+        <div class="links-section">
+            <h2>Ссылки на код GitHub</h2>
+            <div class="github-links">
+                <a href="#" class="github-link" id="link1">Основной код приложения</a>
+                <a href="#" class="github-link" id="link2">Модули и компоненты</a>
+                <a href="#" class="github-link" id="link3">Документация и тесты</a>
             </div>
         </div>
-    </header>
-
-    <!-- Герой-секция -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Стань веб-разработчиком с нуля</h1>
-                <p>Практические курсы по HTML, CSS, JavaScript и другим современным технологиям. Научим создавать сайты и веб-приложения с реальными проектами в портфолио.</p>
-                <a href="#cta" class="btn">Начать бесплатно</a>
-            </div>
+        
+        <div class="background-controls">
+            <button class="bg-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;" data-bg="gradient1">Градиент 1</button>
+            <button class="bg-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;" data-bg="gradient2">Градиент 2</button>
+            <button class="bg-btn" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;" data-bg="gradient3">Градиент 3</button>
+<button class="bg-btn" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white;" data-bg="gradient4">Градиент 4</button>
+            <button class="bg-btn" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;" data-bg="gradient5">Градиент 5</button>
+            <button class="bg-btn" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333;" data-bg="gradient6">Светлый градиент</button>
         </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают HTML Academy</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Практика с первого дня</h3>
-                    <p>Теория закрепляется практическими заданиями и реальными проектами. Сразу применяйте знания на практике.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3>Опытные наставники</h3>
-                    <p>Преподаватели с опытом работы в ведущих IT-компаниях. Получайте обратную связь и поддержку.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3>Актуальные материалы</h3>
-                    <p>Программы постоянно обновляются в соответствии с трендами веб-разработки. Изучайте только нужное.</p>
-                </div>
-            </div>
+        
+        <div class="footer">
+            <p>Дипломная работа выполнена студентом [Ваше Имя]</p>
+            <p>[Название университета], [Год]</p>
         </div>
-    </section>
-<!-- Курсы -->
-    <section class="courses" id="courses">
-        <div class="container">
-            <h2 class="section-title">Популярные курсы</h2>
-            <div class="courses-grid">
-                <div class="course-card fade-in">
-                    <div class="course-img">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <div class="course-content">
-                        <h3>Основы вёрстки</h3>
-                        <p>Научитесь создавать современные адаптивные сайты с чистым кодом. Освойте HTML5 и CSS3.</p>
-                        <div class="price">Бесплатно</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-                <div class="course-card fade-in">
-                    <div class="course-img">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <div class="course-content">
-                        <h3>JavaScript для начинающих</h3>
-                        <p>Освойте основы программирования и создайте интерактивные веб-приложения. От переменных до асинхронности.</p>
-                        <div class="price">15 000 ₽</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-                <div class="course-card fade-in">
-                    <div class="course-img">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <div class="course-content">
-                        <h3>React.js разработка</h3>
-                        <p>Создавайте современные веб-приложения с помощью популярного фреймворка. Компонентный подход и хуки.</p>
-                        <div class="price">25 000 ₽</div>
-                        <a href="#" class="btn">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Отзывы выпускников</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        Прошел курс по JavaScript, получил оффер в IT-компанию через 2 месяца после окончания. Преподаватели объясняют сложные темы простым языком.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">АС</div>
-                        <div>
-                            <div>Алексей Смирнов</div>
-                            <div>Frontend-разработчик</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        Начала с нуля, сейчас работаю в веб-студии. Особенно ценю практический подход - все знания сразу применяла в реальных проектах.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">МК</div>
-                        <div>
-                            <div>Мария Козлова</div>
-                            <div>Веб-разработчик</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <div class="testimonial-text">
-                        Отличная платформа для старта в IT. После курса по React смог устроиться джуниор-разработчиком с достойной зарплатой.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ДИ</div>
-                        <div>
-                            <div>Дмитрий Иванов</div>
-                            <div>React-разработчик</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- Призыв к действию -->
-    <section class="cta" id="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Начни карьеру в IT сегодня</h2>
-                <p>Присоединяйся к тысячам студентов, которые уже начали свой путь в веб-разработке с HTML Academy.</p>
-                <a href="#" class="btn">Записаться на курс</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>HTML Academy</h3>
-                    <p>Онлайн-платформа для обучения веб-разработке с 2013 года. Более 50 000 выпускников.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Курсы</h3>
-                    <ul>
-                        <li><a href="#">HTML и CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                        <li><a href="#">React</a></li>
-                        <li><a href="#">Node.js</a></li>
-                        <li><a href="#">Все курсы</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Поддержка</h3>
-                    <ul>
-                        <li><a href="#">Помощь</a></li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Блог</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 HTML Academy. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Мобильное меню
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-        
-        // Плавная прокрутка
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Закрываем мобильное меню после клика
-                    document.querySelector('nav ul').classList.remove('show');
-                }
-            });
-        });
-        
-        // Эффект при скролле для шапки
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
-        
-        // Анимация появления элементов при скролле
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
+        // Фоновые градиенты
+        const backgrounds = {
+            gradient1: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            gradient2: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            gradient3: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            gradient4: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+            gradient5: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+            gradient6: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
         };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Запускаем при загрузке страницы для элементов, которые уже видны
-        fadeInOnScroll();
+
+        // Обработчики для кнопок выбора фона
+        document.querySelectorAll('.bg-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const bgKey = this.getAttribute('data-bg');
+                document.body.style.background = backgrounds[bgKey];
+            });
+        });
+
+        // Установка начального фона
+        document.body.style.background = backgrounds.gradient1;
+
+        // Замените эти URL на реальные ссылки на ваш код
+        document.getElementById('link1').href = "https://github.com/yourusername/project-main";
+        document.getElementById('link2').href = "https://github.com/yourusername/project-modules";
+        document.getElementById('link3').href = "https://github.com/yourusername/project-docs";
     </script>
 </body>
 </html>
