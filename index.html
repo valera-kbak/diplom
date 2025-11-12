@@ -3,790 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Мастерство HTML & CSS | Тёмный дизайн</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>HTML Academy - Стань веб-разработчиком</title>
     <style>
-        :root {
-            --primary: #ff6b6b;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --dark: #121212;
-            --darker: #0a0a0a;
-            --card-bg: #1e1e1e;
-            --text: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --border: #333333;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-dark: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
-            --gradient-accent: linear-gradient(135deg, #ff6b6b 0%, #ffa36b 100%);
-        }
-
+        /* Базовые стили */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            min-height: 100vh;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
-
-        /* Анимированный фон */
-        .bg-animation {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 200%; height: 200%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 230, 109, 0.05) 0%, transparent 50%);
-            animation: float 20s ease-in-out infinite;
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(2deg); }
-        }
-
-        /* Навигация */
-        nav {
-            background: rgba(18, 18, 18, 0.9);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 1rem 5%;
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
         }
-
+        
         .logo {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
-
-        .logo i {
-            color: var(--secondary);
-            animation: pulse 2s infinite;
+        
+        .logo span {
+            color: #e74c3c;
         }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .nav-links {
+        
+        nav ul {
             display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Герой-секция */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        /* Секции */
+        section {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        /* Преимущества */
+        .features {
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-/* Контейнер */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 20px 50px;
-        }
-
-        /* Заголовки */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        h1 {
-            font-size: 3.5rem;
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+.feature-icon {
+            font-size: 3rem;
+            color: #3498db;
             margin-bottom: 1rem;
         }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--text);
-            border-left: 5px solid var(--primary);
-            padding-left: 1rem;
-            margin: 3rem 0 2rem;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            color: var(--text);
+        
+        .feature-card h3 {
             margin-bottom: 1rem;
+            color: #2c3e50;
         }
-
-        /* Карточки */
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Кнопки */
-        .btn {
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient-accent);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.05);
-            border-color: var(--primary);
-        }
-
-        /* Прогресс-бар */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.05);
-            z-index: 1001;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--gradient-accent);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        /* Код */
-        pre {
-            background: var(--darker);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        pre::before {
-            content: attr(data-lang);
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 0 12px 0 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        code {
-            color: var(--secondary);
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-        }
-
-        /* Тест */
-        .quiz-container {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .quiz-container::before {
-            content: '🎯';
-            position: absolute;
-            top: -30px; right: -30px;
-            font-size: 6rem;
-            opacity: 0.1;
-            transform: rotate(15deg);
-        }
-.question {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--darker);
-            border-radius: 15px;
-            border-left: 5px solid var(--secondary);
-        }
-
-        .question h3 {
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .options {
+        
+        /* Курсы */
+        .courses-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-img {
+            height: 200px;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+        }
+        
+        .course-content h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .course-content p {
+            margin-bottom: 1rem;
+            color: #7f8c8d;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        /* Отзывы */
+        .testimonials {
+            background-color: #f5f7fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            font-size: 5rem;
+            color: #3498db;
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #3498db;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Призыв к действию */
+        .cta {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Футер */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+.footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-
-        .option {
-            padding: 1rem 1.5rem;
-            background: var(--card-bg);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .option:hover {
-            border-color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .option.selected {
-            background: var(--gradient);
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            border-color: transparent;
+            text-decoration: none;
+            transition: background 0.3s;
         }
-
-        .option.correct {
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
+        
+        .social-links a:hover {
+            background: #3498db;
         }
-
-        .option.incorrect {
-            background: linear-gradient(135deg, #f56565, #e53e3e);
-            color: white;
-        }
-
-        .result {
+        
+        .copyright {
             text-align: center;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 15px;
-            font-size: 1.3rem;
-            font-weight: 500;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
         }
-
-        .result.correct {
-            background: rgba(72, 187, 120, 0.1);
-            color: #48bb78;
-            border: 2px solid #48bb78;
-        }
-
-        .result.incorrect {
-            background: rgba(245, 101, 101, 0.1);
-            color: #f56565;
-            border: 2px solid #f56565;
-        }
-
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate {
-            animation: fadeIn 0.6s ease-out;
-        }
-
+        
         /* Адаптивность */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .nav-links { display: none; }
-            .container { padding: 80px 15px 50px; }
-            .card, .quiz-container { padding: 1.5rem; }
-            .options { grid-template-columns: 1fr; }
-        }
-
-        /* Плавная прокрутка */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Подвал */
-        footer {
-            background: var(--darker);
-            color: var(--text-muted);
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border);
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-            opacity: 0.9;
-        }
-
-        .social-links {
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                padding: 1rem;
+                z-index: 100;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
-    </div>
-
-    <nav>
-        <a href="#" class="logo">
-            <i class="fas fa-code"></i> HTML CODER
-        </a>
-        <div class="nav-links">
-            <a href="#basics">Основы</a>
-            <a href="#css">CSS</a>
-            <a href="#practice">Практика</a>
-            <a href="#quiz">Тест</a>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">HTML<span>Academy</span></div>
+                <div class="mobile-menu">☰</div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#courses">Курсы</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#cta" class="btn">Начать обучение</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <div class="container">
-        <div class="animate">
-            <h1>Мастерство HTML & CSS</h1>
-            <p style="text-align: center; font-size: 1.3rem; margin: 2rem 0; color: var(--text-muted);">
-                🌟 Интерактивный урок в элегантном тёмном дизайне
-            </p>
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Стань веб-разработчиком с нуля</h1>
+            <p>Практические курсы по HTML, CSS, JavaScript и другим современным технологиям. Научим создавать сайты и веб-приложения с реальными проектами в портфолио.</p>
+            <a href="#cta" class="btn">Начать бесплатно</a>
         </div>
-<!-- Основы HTML -->
-        <section id="basics" class="animate">
-            <h2>🎨 Основы HTML</h2>
-            
-            <div class="card animate">
-                <h3>Что такое HTML?</h3>
-                <p><strong>HTML</strong> (HyperText Markup Language) — это язык разметки, который используется для создания структуры веб-страниц. Он состоит из <em>тегов</em>, которые определяют, как будет отображаться контент.</p>
-                
-                <pre data-lang="html"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ru"&gt;
-&lt;head&gt;
-    &lt;title&gt;Моя первая страница&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Привет, мир!&lt;/h1&gt;
-    &lt;p&gt;Это мой первый HTML-документ.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
+    </section>
 
-            <div class="card animate">
-                <h3>Основные теги</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                    <div style="background: rgba(255,107,107,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--primary);">
-                        <strong>&lt;h1&gt; - &lt;h6&gt;</strong><br>Заголовки
+    <!-- Преимущества -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Почему выбирают HTML Academy</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Практика с первого дня</h3>
+                    <p>Теория закрепляется практическими заданиями и реальными проектами.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Опытные наставники</h3>
+                    <p>Преподаватели с опытом работы в ведущих IT-компаниях.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Актуальные материалы</h3>
+                    <p>Программы постоянно обновляются в соответствии с трендами веб-разработки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Курсы -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2>Популярные курсы</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background-color: #3498db;">HTML & CSS</div>
+                    <div class="course-content">
+                        <h3>Основы вёрстки</h3>
+                        <p>Научитесь создавать современные адаптивные сайты с чистым кодом.</p>
+                        <div class="price">Бесплатно</div>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
                     </div>
-                    <div style="background: rgba(78,205,196,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--secondary);">
-                        <strong>&lt;p&gt;</strong><br>Параграф
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-color: #e74c3c;">JavaScript</div>
+                    <div class="course-content">
+                        <h3>JavaScript для начинающих</h3>
+                        <p>Освойте основы программирования и создайте интерактивные веб-приложения.</p>
+                        <div class="price">15 000 ₽</div>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
                     </div>
-                    <div style="background: rgba(255,230,109,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent);">
-                        <strong>&lt;a href=""&gt;</strong><br>Ссылка
-                    </div>
-                    <div style="background: rgba(102,126,234,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid #667eea;">
-                        <strong>&lt;img src=""&gt;</strong><br>Изображение
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-color: #2ecc71;">React</div>
+                    <div class="course-content">
+                        <h3>React.js разработка</h3>
+                        <p>Создавайте современные веб-приложения с помощью популярного фреймворка.</p>
+                        <div class="price">25 000 ₽</div>
+                        <a href="#" class="btn" style="margin-top: 1rem;">Подробнее</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CSS -->
-        <section id="css" class="animate">
-            <h2>✨ Стилизация с CSS</h2>
-            
-            <div class="card animate">
-                <h3>Подключение CSS</h3>
-                <p>Есть три способа добавить стили:</p>
-                <pre data-lang="html"><code>&lt;!-- Внутренние стили --&gt;
-&lt;style&gt;
-    body { background: #f0f0f0; }
-&lt;/style&gt;
-
-&lt;!-- Внешний файл --&gt;
-&lt;link rel="stylesheet" href="style.css"&gt;
-
-&lt;!-- Инлайн стили --&gt;
-&lt;div style="color: red;"&gt;Текст&lt;/div&gt;</code></pre>
-            </div>
-
-            <div class="card animate">
-                <h3>Селекторы CSS</h3>
-                <pre data-lang="css"><code>/* По тегу */
-p { color: blue; }
-
-/* По классу */
-.highlight { background: yellow; }
-
-/* По ID */
-#header { font-size: 2rem; }
-
-/* По атрибуту */
-input[type="text"] { border: 1px solid #ccc; }</code></pre>
-            </div>
-
-            <div class="card animate">
-                <h3>Box Model</h3>
-                <p>Каждый элемент — это коробка:</p>
-                <div style="text-align: center; margin: 2rem 0;">
-                    <div style="display: inline-block; padding: 20px; background: var(--gradient); color: white; border-radius: 15px; position: relative;">
-                        <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--card-bg); color: var(--text); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 1px solid var(--border);">Margin</div>
-                        <div style="border: 15px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px;">
-                            <div style="background: var(--card-bg); color: var(--text); padding: 20px; border-radius: 8px; position: relative;">
-<div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: rgba(255,107,107,0.8); color: white; padding: 3px 12px; border-radius: 15px; font-size: 0.8rem;">Padding</div>
-                                <strong>Content</strong>
-                            </div>
+    <!-- Отзывы -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Отзывы выпускников</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Прошел курс по JavaScript, получил оффер в IT-компанию через 2 месяца после окончания. Преподаватели объясняют сложные темы простым языком."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АС</div>
+                        <div>
+                            <div>Алексей Смирнов</div>
+                            <div>Frontend-разработчик</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Начала с нуля, сейчас работаю в веб-студии. Особенно ценю практический подход - все знания сразу применяла в реальных проектах."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">МК</div>
+                        <div>
+                            <div>Мария Козлова</div>
+                            <div>Веб-разработчик</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Отличная платформа для старта в IT. После курса по React смог устроиться джуниор-разработчиком с достойной зарплатой."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ДИ</div>
+                        <div>
+                            <div>Дмитрий Иванов</div>
+                            <div>React-разработчик</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+<!-- Призыв к действию -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Начни карьеру в IT сегодня</h2>
+            <p>Присоединяйся к тысячам студентов, которые уже начали свой путь в веб-разработке с HTML Academy.</p>
+            <a href="#" class="btn">Записаться на курс</a>
+        </div>
+    </section>
 
-        <!-- Практика -->
-        <section id="practice" class="animate">
-            <h2>🔧 Практическое задание</h2>
-            
-            <div class="card animate">
-                <h3>Создайте карточку товара</h3>
-                <p>Используя изученное, создайте красивую карточку:</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                    <div class="card animate" style="text-align: center; padding: 0; overflow: hidden;">
-                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); height: 150px; border-radius: 15px 15px 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <div style="padding: 1.5rem;">
-                            <h4 style="margin: 0 0 0.5rem; color: var(--primary);">MacBook Pro</h4>
-                            <p style="margin: 0 0 1rem; color: var(--text-muted);">Мощный ноутбук для профессионалов</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <strong style="font-size: 1.5rem; color: var(--text);">₽199,990</strong>
-                                <button class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <pre data-lang="html" style="margin-top: 2rem;"><code>&lt;div class="product-card"&gt;
-    &lt;div class="image"&gt;&lt;i class="fas fa-laptop"&gt;&lt;/i&gt;&lt;/div&gt;
-    &lt;div class="content"&gt;
-        &lt;h4&gt;MacBook Pro&lt;/h4&gt;
-        &lt;p&gt;Мощный ноутбук для профессионалов&lt;/p&gt;
-        &lt;div class="price"&gt;
-            &lt;strong&gt;₽199,990&lt;/strong&gt;
-            &lt;button&gt;Купить&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-            </div>
-        </section>
-
-        <!-- Тест -->
-        <section id="quiz" class="animate">
-            <h2>🧪 Финальный тест</h2>
-            
-            <div class="quiz-container">
-                <div id="quiz">
-                    <div class="question animate" id="q1">
-                        <h3>1. Какой тег используется для создания заголовка первого уровня?</h3>
-                        <div class="options">
-                            <div class="option" data-answer="correct">&lt;h1&gt;</div>
-                            <div class="option">&lt;header&gt;</div>
-                            <div class="option">&lt;head&gt;</div>
-                            <div class="option">&lt;title&gt;</div>
-                        </div>
-                        <div class="result" id="result1" style="display: none;"></div>
-                    </div>
-
-                    <div class="question animate" id="q2">
-                        <h3>2. Какой атрибут используется для добавления ссылки?</h3>
-                        <div class="options">
-                            <div class="option">&lt;a link="..."&gt;</div>
-                            <div class="option" data-answer="correct">&lt;a href="..."&gt;</div>
-<div class="option">&lt;a src="..."&gt;</div>
-                            <div class="option">&lt;a url="..."&gt;</div>
-                        </div>
-                        <div class="result" id="result2" style="display: none;"></div>
-                    </div>
-
-                    <div class="question animate" id="q3">
-                        <h3>3. Какой CSS-селектор выбирает элемент с id="header"?</h3>
-                        <div class="options">
-                            <div class="option">.header</div>
-                            <div class="option" data-answer="correct">#header</div>
-                            <div class="option">header</div>
-                            <div class="option">*header</div>
-                        </div>
-                        <div class="result" id="result3" style="display: none;"></div>
-                    </div>
-
-                    <div class="question animate" id="q4">
-                        <h3>4. Что входит в Box Model? (выберите все правильные)</h3>
-                        <div class="options">
-                            <div class="option" data-answer="correct">Content</div>
-                            <div class="option" data-answer="correct">Padding</div>
-                            <div class="option" data-answer="correct">Border</div>
-                            <div class="option" data-answer="correct">Margin</div>
-                        </div>
-                        <div class="result" id="result4" style="display: none;"></div>
-                    </div>
-
-                    <div class="question animate" id="q5">
-                        <h3>5. Как подключить внешний CSS-файл?</h3>
-                        <div class="options">
-                            <div class="option">&lt;css href="style.css"&gt;</div>
-                            <div class="option" data-answer="correct">&lt;link rel="stylesheet" href="style.css"&gt;</div>
-                            <div class="option">&lt;style src="style.css"&gt;</div>
-                            <div class="option">&lt;import "style.css"&gt;</div>
-                        </div>
-                        <div class="result" id="result5" style="display: none;"></div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn btn-primary" id="checkAnswers">Проверить ответы</button>
-                    <button class="btn btn-secondary" id="resetQuiz" style="display: none;">Пройти заново</button>
-                </div>
-
-                <div id="finalScore" style="text-align: center; margin-top: 2rem; font-size: 1.5rem; font-weight: bold; display: none;"></div>
-            </div>
-        </section>
-    </div>
-
+    <!-- Футер -->
     <footer>
         <div class="container">
-            <p>🌸 Создано с любовью для изучения HTML & CSS</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-codepen"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>HTML Academy</h3>
+                    <p>Онлайн-платформа для обучения веб-разработке с 2013 года.</p>
+                    <div class="social-links">
+                        <a href="#">VK</a>
+                        <a href="#">TG</a>
+                        <a href="#">YT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Курсы</h3>
+                    <ul>
+                        <li><a href="#">HTML и CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">React</a></li>
+                        <li><a href="#">Node.js</a></li>
+                        <li><a href="#">Все курсы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Поддержка</h3>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Блог</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>© 2025 Мастерство Веб-Разработки. Все права защищены.</p>
+            <div class="copyright">
+                <p>&copy; 2023 HTML Academy. Все права защищены.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Прогресс-бар
-        window.addEventListener('scroll', () => {
-            const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
+        // Мобильное меню
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
         });
-
-        // Анимация появления
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.card, .question, section').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Тест
-        let score = 0;
-        const totalQuestions = 5;
-document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', function() {
-                const question = this.closest('.question');
-                question.querySelectorAll('.option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
-
-        document.getElementById('checkAnswers').addEventListener('click', function() {
-            score = 0;
-            
-            // Вопрос 1
-            const q1 = document.querySelector('#q1 .option[data-answer="correct"]');
-            if (q1 && q1.classList.contains('selected')) {
-                showResult('result1', true);
-                score++;
-            } else {
-                showResult('result1', false);
-            }
-
-            // Вопрос 2
-            const q2 = document.querySelector('#q2 .option[data-answer="correct"]');
-            if (q2 && q2.classList.contains('selected')) {
-                showResult('result2', true);
-                score++;
-            } else {
-                showResult('result2', false);
-            }
-
-            // Вопрос 3
-            const q3 = document.querySelector('#q3 .option[data-answer="correct"]');
-            if (q3 && q3.classList.contains('selected')) {
-                showResult('result3', true);
-                score++;
-            } else {
-                showResult('result3', false);
-            }
-
-            // Вопрос 4 (множественный)
-            const correct4 = document.querySelectorAll('#q4 .option[data-answer="correct"]');
-            const selected4 = document.querySelectorAll('#q4 .option.selected');
-            if (selected4.length === correct4.length && 
-                Array.from(selected4).every(sel => sel.hasAttribute('data-answer'))) {
-                showResult('result4', true);
-                score++;
-            } else {
-                showResult('result4', false);
-            }
-
-            // Вопрос 5
-            const q5 = document.querySelector('#q5 .option[data-answer="correct"]');
-            if (q5 && q5.classList.contains('selected')) {
-                showResult('result5', true);
-                score++;
-            } else {
-                showResult('result5', false);
-            }
-
-            // Финальный результат
-            const finalScore = document.getElementById('finalScore');
-            finalScore.style.display = 'block';
-            finalScore.innerHTML = 🎉 Ваш результат: <strong>${score}/${totalQuestions}</strong> правильных ответов!;
-            
-            if (score === totalQuestions) {
-                finalScore.style.color = '#48bb78';
-                finalScore.innerHTML += '<br>🏆 Превосходно! Вы освоили основы HTML и CSS!';
-            } else if (score >= 3) {
-                finalScore.style.color = '#667eea';
-                finalScore.innerHTML += '<br>👍 Отлично! Продолжайте практиковаться!';
-            } else {
-                finalScore.style.color = '#f56565';
-                finalScore.innerHTML += '<br>📚 Повторите материал и попробуйте снова!';
-            }
-
-            document.getElementById('checkAnswers').style.display = 'none';
-            document.getElementById('resetQuiz').style.display = 'inline-block';
-        });
-
-        function showResult(resultId, isCorrect) {
-            const result = document.getElementById(resultId);
-            result.style.display = 'block';
-            result.className = 'result ' + (isCorrect ? 'correct' : 'incorrect');
-            result.innerHTML = isCorrect ? '✅ Правильно!' : '❌ Неправильно';
-            
-            if (!isCorrect) {
-                const correctOption = document.querySelector(#${resultId.replace('result', 'q')} .option[data-answer="correct"]);
-                if (correctOption) {
-                    correctOption.classList.add('correct');
-                }
-            }
-        }
-document.getElementById('resetQuiz').addEventListener('click', function() {
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected', 'correct', 'incorrect');
-            });
-            document.querySelectorAll('.result').forEach(res => {
-                res.style.display = 'none';
-            });
-            document.getElementById('finalScore').style.display = 'none';
-            document.getElementById('checkAnswers').style.display = 'inline-block';
-            document.getElementById('resetQuiz').style.display = 'none';
-            score = 0;
-        });
-
-        // Плавная прокрутка для навигации
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Закрываем мобильное меню после клика
+                    document.querySelector('nav ul').classList.remove('show');
+                }
             });
         });
     </script>
